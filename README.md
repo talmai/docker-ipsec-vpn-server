@@ -1,10 +1,13 @@
+# IPsec VPN Server on Docker
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/talmai/docker-ipsec-vpn-server.svg)](https://hub.docker.com/r/talmai/docker-ipsec-vpn-server/)
 [![Docker Stars](https://img.shields.io/docker/stars/talmai/docker-ipsec-vpn-server.svg)](https://hub.docker.com/r/talmai/docker-ipsec-vpn-server/)
 
-﻿IPsec VPN Server on Docker
---------------------------
-
 Docker image to run a multi-user, IPsec VPN server with support for both `IPsec/L2TP` and `IPsec/XAuth ("Cisco IPsec")`. Based on [Lin Song's IPsec VPN Server on Docker](https://github.com/hwdsl2/docker-ipsec-vpn-server) and forked from [mobilejazz](https://github.com/mobilejazz/docker-ipsec-vpn-server).
+
+### Available on Docker Hub
+
+`docker pull talmai/docker-ipsec-vpn-server`
 
 ## Install Docker
 
