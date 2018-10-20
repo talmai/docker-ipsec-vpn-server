@@ -9,14 +9,23 @@ Docker image to run a multi-user, IPsec VPN server with support for both `IPsec/
 
 Follow [these instructions](https://docs.docker.com/engine/installation/) to get Docker running on your server.
 
-### Available on Docker Hub (prebuilt) or build from source
 
-`docker pull talmai/docker-ipsec-vpn-server`
-
-or
+### Available on Docker Hub (prebuilt) or built from source
 
 ```
+git clone https://github.com/talmai/docker-ipsec-vpn-server.git
+docker pull talmai/docker-ipsec-vpn-server
+cd docker-ipsec-vpn-server
+./helper.sh
+```
+
+Or build from source
+
+```
+git clone https://github.com/talmai/docker-ipsec-vpn-server.git
+cd docker-ipsec-vpn-server
 docker build -t talmai/docker-ipsec-vpn-server .
+./helper.sh
 ```
 
 ## Run the helper script
