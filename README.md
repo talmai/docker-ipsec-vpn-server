@@ -5,15 +5,15 @@
 
 Docker image to run a multi-user, IPsec VPN server with support for both `IPsec/L2TP` and `IPsec/XAuth ("Cisco IPsec")`. Based on [Lin Song's IPsec VPN Server on Docker](https://github.com/hwdsl2/docker-ipsec-vpn-server) and forked from [mobilejazz](https://github.com/mobilejazz/docker-ipsec-vpn-server).
 
-### Available on Docker Hub
-
-`docker pull talmai/docker-ipsec-vpn-server`
-
 ## Install Docker
 
 Follow [these instructions](https://docs.docker.com/engine/installation/) to get Docker running on your server.
 
-### Build from source code
+### Available on Docker Hub (prebuilt) or build from source
+
+`docker pull talmai/docker-ipsec-vpn-server`
+
+or
 
 ```
 docker build -t talmai/docker-ipsec-vpn-server .

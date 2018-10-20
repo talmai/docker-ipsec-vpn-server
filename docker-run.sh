@@ -28,14 +28,16 @@ if [ $1 == "add-user" ]; then
 	SHARED_SECRET=$(cut -d'"' -f2 /etc/ipsec.secrets)
 	echo "Shared secret: $SHARED_SECRET"
 
-	VPN_PASSWORD="$(LC_CTYPE=C tr -dc 'A-HJ-NPR-Za-km-z2f-9' < /dev/urandom | head -c 20)"
+    VPN_PASSWORD="$(LC_CTYPE=C tr -dc 'A-HJ-NPR-Za-km-z2-9' < /dev/urandom | head -c 20)"
 	VPN_PASSWORD_ENC=$(openssl passwd -1 "$VPN_PASSWORD")
 	echo "Password for user is: $VPN_PASSWORD"
 
 	echo '"'$VPN_USER'"' l2tpd '"'$VPN_PASSWORD'"' '*' >> /etc/ppp/chap-secrets
 	echo $VPN_USER:$VPN_PASSWORD_ENC:xauth-psk >> /etc/ipsec.d/passwd
+	exit 1
 elif [ $1 == "list-users" ]; then
 	grep -v '^#' /etc/ppp/chap-secrets | cut -d' ' -f1 | cut -d'"' -f2
+	exit 1
 elif [ $1 == "remove-user" ]; then
 	VPN_USER="$2"
 
@@ -49,10 +51,12 @@ elif [ $1 == "remove-user" ]; then
 	sed "/\"$VPN_USER\" /d" /etc/ppp/chap-secrets.bak > /etc/ppp/chap-secrets
 	cp /etc/ipsec.d/passwd /etc/ipsec.d/passwd.bak
 	sed "/$VPN_USER:/d" /etc/ipsec.d/passwd.bak > /etc/ipsec.d/passwd
+	exit 1
 elif [ $EXEC == "run" ]; then
 	/ipsec/start-ipsec.sh &
 else
 	echo docker-run.sh run with no parameter - "${@}"
+	exit 1
 fi
 
 noop

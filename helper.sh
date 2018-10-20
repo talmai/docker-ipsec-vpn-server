@@ -38,18 +38,18 @@ do
           if [ $# -ne 0 ]; then
             name="$2"   # we do not check validity of $2
           fi
-          docker exec -it ipsec /ipsec/docker-run.sh add-user "$name" -d
+          docker exec -it ipsec /ipsec/docker-run.sh add-user "$name"
           exit 0
           ;;
       -l | --list)
-          docker exec -it ipsec /ipsec/docker-run.sh list-users -d
+          docker exec -it ipsec /ipsec/docker-run.sh list-users
           exit 0
            ;;
       -r | --remove)
           if [ $# -ne 0 ]; then
             name="$2"   # we do not check validity of $2
           fi
-          docker exec -it ipsec /ipsec/docker-run.sh remove-user "$name" -d
+          docker exec -it ipsec /ipsec/docker-run.sh remove-user "$name"
           exit 0
           ;;
       -*)
