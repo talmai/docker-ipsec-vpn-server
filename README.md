@@ -1,13 +1,10 @@
-![DockerIpSec](https://raw.githubusercontent.com/mobilejazz/metadata/master/images/banners/mobile-jazz-docker-ipnsec-server.png)
+[![Docker Pulls](https://img.shields.io/docker/pulls/talmai/docker-ipsec-vpn-server.svg)](https://hub.docker.com/r/talmai/docker-ipsec-vpn-server/)
+[![Docker Stars](https://img.shields.io/docker/stars/talmai/docker-ipsec-vpn-server.svg)](https://hub.docker.com/r/talmai/docker-ipsec-vpn-server/)
 
 ﻿IPsec VPN Server on Docker
 --------------------------
 
-[![Build Status](https://travis-ci.org/mobilejazz/docker-ipsec-vpn-server.svg)](https://travis-ci.org/mobilejazz/docker-ipsec-vpn-server)
-
-Docker image to run an IPsec VPN server, with support for both `IPsec/L2TP` and `IPsec/XAuth ("Cisco IPsec")`.
-
-Based on [Lin Song's IPsec VPN Server on Docker](https://github.com/hwdsl2/docker-ipsec-vpn-server) modified specially for **multiple users**.
+Docker image to run a multi-user, IPsec VPN server with support for both `IPsec/L2TP` and `IPsec/XAuth ("Cisco IPsec")`. Based on [Lin Song's IPsec VPN Server on Docker](https://github.com/hwdsl2/docker-ipsec-vpn-server) and forked from [mobilejazz](https://github.com/mobilejazz/docker-ipsec-vpn-server).
 
 ## Install Docker
 
