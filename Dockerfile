@@ -1,7 +1,7 @@
 FROM debian:jessie
-MAINTAINER Jordi Gimenez <info@mobilejazz.com>
+MAINTAINER Talmai Oliveira <to@talm.ai>
 
-ENV REFRESHED_AT 2017-10-13
+ENV REFRESHED_AT 2018-10-19
 ENV SWAN_VER 3.21
 
 WORKDIR /opt/src
@@ -37,14 +37,12 @@ RUN sed -i "s/httpredir\.debian\.org/ftp.us.debian.org/g" /etc/apt/sources.list 
     && rm -rf /var/lib/apt/lists/* \
     && rm /etc/ipsec.secrets /etc/ppp/chap-secrets
 
-COPY ./run.sh /run.sh
-COPY ./adduser.sh /adduser.sh
-COPY ./lsusers.sh /lsusers.sh
-COPY ./rmuser.sh /rmuser.sh
-RUN chmod 755 /run.sh /adduser.sh /lsusers.sh /rmuser.sh
+COPY docker-run.sh /ipsec/docker-run.sh
+COPY start-ipsec.sh /ipsec/start-ipsec.sh
+RUN chmod 755 /ipsec/docker-run.sh /ipsec/start-ipsec.sh
 
 EXPOSE 500/udp 4500/udp
 
 VOLUME ["/lib/modules", "/etc/ppp/chap-secrets", "/etc/ipsec.d/passwd", "/etc/ipsec.secrets"]
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/ipsec/docker-run.sh"]

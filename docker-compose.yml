@@ -1,0 +1,21 @@
+# Usage:
+# docker-compose build && docker-compose up
+version: '2'
+
+services:
+  ipsec:
+    image: talmai/docker-ipsec-vpn-server
+    build: .
+    ports:
+      - "500:500/udp"
+      - "4500:4500/udp"
+    volumes:
+      - ./etc/ppp/chap-secrets:/etc/ppp/chap-secrets
+      - ./etc/ipsec.d/passwd:/etc/ipsec.d/passwd
+      - ./etc/ipsec.secrets:/etc/ipsec.secrets
+      - /lib/modules:/lib/modules:ro
+    privileged: true
+    restart: always
+    environment:
+      - EXEC=run
+    container_name: ipsec
