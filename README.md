@@ -33,7 +33,7 @@ docker build -t talmai/docker-ipsec-vpn-server .
 ```
 ./helper.sh
 
-    -b, --begin			  start ipsec server
+    -b, --begin           start ipsec server
     -s, --status          get status
     -a, --add <user>      creates new user
     -l, --list            lists all users
